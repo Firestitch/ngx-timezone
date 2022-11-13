@@ -9,5 +9,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class FsClipboardButtonComponent {
 
   @Input() public content: string | (() => string) | HTMLElement;
+  @Input() public tooltip = 'Copy to clipboard';
 
 }

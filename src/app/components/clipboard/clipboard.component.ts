@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 
 @Component({
@@ -8,5 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsClipboardComponent {
+
+  @Input() public content: string | (() => string) | HTMLElement;
+  @Input() public tooltip = 'Copy to clipboard';
 
 }
