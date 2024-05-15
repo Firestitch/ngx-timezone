@@ -7,7 +7,7 @@ import { FsAutocompleteModule } from '@firestitch/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { TimezoneSelectComponent } from './components';
+import { TimezoneAutocompleteComponent } from './components';
 
 
 @NgModule({
@@ -21,10 +21,10 @@ import { TimezoneSelectComponent } from './components';
     MatSelectModule,
   ],
   declarations: [
-    TimezoneSelectComponent,
+    TimezoneAutocompleteComponent,
   ],
   exports: [
-    TimezoneSelectComponent,
+    TimezoneAutocompleteComponent,
   ],
 })
 export class FsTimezoneModule {

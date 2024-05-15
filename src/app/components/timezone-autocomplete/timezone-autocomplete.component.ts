@@ -11,17 +11,17 @@ import { FsTimezone } from '../../services';
 
 
 @Component({
-  selector: 'fs-timezone-select',
-  templateUrl: './timezone-select.component.html',
-  styleUrls: ['./timezone-select.component.scss'],
+  selector: 'fs-timezone-autocomplete',
+  templateUrl: './timezone-autocomplete.component.html',
+  styleUrls: ['./timezone-autocomplete.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: TimezoneSelectComponent,
+    useExisting: TimezoneAutocompleteComponent,
     multi: true,
   }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TimezoneSelectComponent implements ControlValueAccessor {
+export class TimezoneAutocompleteComponent implements ControlValueAccessor {
 
   @Input() public placeholder = 'Timezone';
   @Input() public required = false;
@@ -68,7 +68,6 @@ export class TimezoneSelectComponent implements ControlValueAccessor {
       return '';
     }
    
-
     return timezone?.description;
   };
 
