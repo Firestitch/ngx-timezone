@@ -1,25 +1,23 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
 
 import { FsExampleModule } from '@firestitch/example';
-import { FsMessageModule } from '@firestitch/message';
 import { FsLabelModule } from '@firestitch/label';
+import { FsMessageModule } from '@firestitch/message';
 import { FsStoreModule } from '@firestitch/store';
 
 import { ToastrModule } from 'ngx-toastr';
 
-import { AppMaterialModule } from './material.module';
-import {
-  ExamplesComponent
-} from './components';
+import { FsTimezoneModule } from '@firestitch/timezone';
 import { AppComponent } from './app.component';
-import { CopyComponent } from './components/copy';
-import { FsClipboardModule } from 'src/app/fs-clipboard.module';
-import { ClipboardButtonComponent } from './components/clipboard-button';
-import { ClipboardComponent } from './components/clipboard';
+import {
+  ExamplesComponent,
+  TimezoneComponent
+} from './components';
+import { AppMaterialModule } from './material.module';
 
 
 const routes: Routes = [
@@ -36,7 +34,7 @@ const routes: Routes = [
     FsLabelModule,
     FsStoreModule,
     FsExampleModule.forRoot(),
-    FsClipboardModule,
+    FsTimezoneModule,
     FsMessageModule.forRoot(),
     ToastrModule.forRoot({ preventDuplicates: true }),
     RouterModule.forRoot(routes),
@@ -44,9 +42,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ExamplesComponent,
-    CopyComponent,
-    ClipboardButtonComponent,
-    ClipboardComponent,
+    TimezoneComponent,
   ],
 })
 export class PlaygroundModule {

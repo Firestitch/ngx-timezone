@@ -1,10 +1,10 @@
 {
-  "name": "@firestitch/clipboard",
+  "name": "@firestitch/timezone",
   "title": "Clipboard",
   "version": "13.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Firestitch/ngx-clipboard"
+    "url": "https://github.com/Firestitch/ngx-timezone"
   },
   "author": {
     "name": "Firestitch",
@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Firestitch/ngx-clipboard/issues"
+    "url": "https://github.com/Firestitch/ngx-timezone/issues"
   },
   "main": "package/index.js",
   "typings": "package/index.d.ts",

@@ -1,0 +1,36 @@
+<!-- <mat-form-field>
+  <mat-label>{{placeholder}}</mat-label>
+  <mat-select
+      [(ngModel)]="timezone"
+      [required]="required"
+      (ngModelChange)="change($event)"
+      (openedChange)="openedChange($event)"
+     >
+    <mat-option 
+        *ngFor="let item of timezones" 
+        [ngClass]="'timezone-select-option'"
+        [attr.data-attr]="item.identifier"
+        [value]="item.identifier">
+      {{item.description}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+
+<fs-autocomplete
+    [placeholder]="placeholder"
+    [(ngModel)]="timezone"
+    [required]="required" 
+    [disabled]="disabled"
+    [panelClass]="'timezone-autocomplete'"
+    [fetch]="fetch"
+    [displayWith]="displayWith"
+    (opened)="opened()"
+    [fetchOnFocus]="true"
+    (cleared)="change(null)"
+    [name]="name"
+    (ngModelChange)="change($event)">
+  <ng-template fsAutocompleteTemplate let-data="data">
+    <span class="timezone-autocomplete-option" [attr.data-attr]="data.identifier">{{data.description}}</span>
+  </ng-template>
+</fs-autocomplete>
