@@ -6,8 +6,8 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { guid } from '@firestitch/common';
-import { FsTimezone } from '@firestitch/timezone';
 import { Observable, of } from 'rxjs';
+import { FsTimezone } from '../../services';
 
 
 @Component({
