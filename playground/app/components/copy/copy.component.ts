@@ -17,4 +17,15 @@ export class CopyComponent {
   public copy(): void {
     this._clipboard.copy('Copied Text!');
   }
+
+  public copyHtml(): void {
+    this._clipboard.copyHtml('<h1>This is 1st level heading</h1> This text');
+  }
+
+  public copyTypes(): void {
+    this._clipboard.copy({
+      'text/html': '<h1>This is 1st level heading</h1> This text',
+      'text/plain': 'This is 1st level heading This text',
+    });
+  }
 }
