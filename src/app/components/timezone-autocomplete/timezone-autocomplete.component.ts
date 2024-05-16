@@ -1,12 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component, EventEmitter, Input,
-  Output
+  Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { guid } from '@firestitch/common';
+
 import { Observable, of } from 'rxjs';
+
 import { FsTimezone } from '../../services';
 
 
@@ -57,10 +59,17 @@ export class TimezoneAutocompleteComponent implements ControlValueAccessor {
   }
 
   public setDisabledState?(isDisabled: boolean): void {
+    //
   }
 
   public fetch = (keyword: string): Observable<any> => {
-    return of(this._timezoneService.timezones);
+    keyword = keyword.toLowerCase();
+    const timezones = this._timezoneService.timezones
+      .filter((timezone) => {
+        return !keyword || timezone.description.toLocaleLowerCase().indexOf(keyword) !== -1;
+      });
+
+    return of(timezones);
   };
 
   public displayWith = (timezone) => {
@@ -78,7 +87,9 @@ export class TimezoneAutocompleteComponent implements ControlValueAccessor {
 
   public opened(): void {
     if(!this.timezone) {
-      const el = document.querySelector(`.timezone-autocomplete .timezone-autocomplete-option[data-attr="${this._timezoneService.timezone}"]`);
+      const el = document
+        .querySelector(`.timezone-autocomplete .timezone-autocomplete-option[data-attr="${this._timezoneService.timezone}"]`);
+        
       el?.scrollIntoView({ block:'center' });
     }
   }
