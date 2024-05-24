@@ -4,4 +4,6 @@
   name="timezone">
 </fs-timezone-autocomplete>
 
-<p>Timezone: {{timezone}}</p>
+<ng-container *ngIf="timezone">
+  <p>Timezone: {{timezone | fsTimezone}} ({{timezone}})</p>
+</ng-container>
