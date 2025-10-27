@@ -1,9 +1,9 @@
-<fs-timezone-autocomplete 
+<fs-timezone-autocomplete
   [(ngModel)]="timezone"
   [required]="true"
   name="timezone">
 </fs-timezone-autocomplete>
 
-<ng-container *ngIf="timezone">
+@if (timezone) {
   <p>Timezone: {{timezone | fsTimezone}} ({{timezone}})</p>
-</ng-container>
+}
