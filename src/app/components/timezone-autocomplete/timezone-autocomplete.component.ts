@@ -3,25 +3,28 @@ import {
   Component, EventEmitter, Input,
   Output,
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
 import { guid } from '@firestitch/common';
 
 import { Observable, of } from 'rxjs';
 
 import { FsTimezone } from '../../services';
+import { FsAutocompleteModule } from '@firestitch/autocomplete';
 
 
 @Component({
-  selector: 'fs-timezone-autocomplete',
-  templateUrl: './timezone-autocomplete.component.html',
-  styleUrls: ['./timezone-autocomplete.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: TimezoneAutocompleteComponent,
-    multi: true,
-  }],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-timezone-autocomplete',
+    templateUrl: './timezone-autocomplete.component.html',
+    styleUrls: ['./timezone-autocomplete.component.scss'],
+    providers: [{
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: TimezoneAutocompleteComponent,
+            multi: true,
+        }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [FsAutocompleteModule, FormsModule],
 })
 export class TimezoneAutocompleteComponent implements ControlValueAccessor {
 

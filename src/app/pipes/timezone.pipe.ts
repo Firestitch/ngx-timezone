@@ -3,7 +3,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { FsTimezone } from '../services';
 
 
-@Pipe({ name: 'fsTimezone' })
+@Pipe({
+    name: 'fsTimezone',
+    standalone: true
+})
 export class FsTimezonePipe implements PipeTransform {
   
   constructor(
