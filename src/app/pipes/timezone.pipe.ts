@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 
 import { FsTimezone } from '../services';
 
@@ -8,10 +8,8 @@ import { FsTimezone } from '../services';
     standalone: true
 })
 export class FsTimezonePipe implements PipeTransform {
-  
-  constructor(
-    private _timezone: FsTimezone,
-  ) {}
+  private _timezone = inject(FsTimezone);
+
 
   public transform(identifier: string): string {
 

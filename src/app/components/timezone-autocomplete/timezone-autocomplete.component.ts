@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component, EventEmitter, Input,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
 import { guid } from '@firestitch/common';
@@ -27,6 +23,8 @@ import { FsAutocompleteModule } from '@firestitch/autocomplete';
     imports: [FsAutocompleteModule, FormsModule],
 })
 export class TimezoneAutocompleteComponent implements ControlValueAccessor {
+  private _timezoneService = inject(FsTimezone);
+
 
   @Input() public placeholder = 'Timezone';
   @Input() public required = false;
@@ -42,9 +40,7 @@ export class TimezoneAutocompleteComponent implements ControlValueAccessor {
   public onChange: (value) => void;
   public onTouch: (value) => void;
 
-  constructor(
-    private _timezoneService: FsTimezone,
-  ) {
+  constructor() {
     this.timezones = this._timezoneService.timezones;
   }
 
